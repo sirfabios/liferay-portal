@@ -73,7 +73,6 @@ definition {
 	}
 
 	@description = "Verify that user can insert especial caracter in the submission."
-	@ignore = "Test Stub"
 	@priority = "3"
 	test CanInsertEspecialCaracter {
 		KaleoFormsAdmin.submitNewProcess(kfProcessName = "Kaleo Forms Process");
