@@ -57,7 +57,6 @@ definition {
 				value1 = "${ddlPhoneOffice}");
 		}
 	}
-
 	macro editDLLRecordContacts {
 		DDLRecord.editPG(ddlListName = "${ddlListName}");
 
@@ -71,18 +70,24 @@ definition {
 			locator1 = "KaleoFormsNewSubmissions#FIELD_DEFINITION",
 			value1 = "${ddlFirstNameEdit}");
 	}
-
 	macro viewStatusDDL {
 		AssertElementPresent(
 			key_status = "${status}",
 			locator1 = "KaleoFormsNewSubmissions#LIST_TABLE_NAME_STATUS");
 	}
-
 	macro viewWorkflowInProcessMessage {
 		AssertTextEquals(
 			key_errorMessage = "${errorMessage}",
 			locator1 = "KaleoFormsNewSubmissions#ERROR_MESSAGE",
 			value1 = "${errorMessage}");
 	}
+	macro viewPaginationNumber {
+		for (var pageNumber : list "${pageNumberList}") {
+			var key_pageNumber = "${pageNumber}";
+
+			AssertElementPresent(locator1 = "KaleoFormsNewSubmissions#PAGINATION_NUMBER");
+		}
+	}
+
 
 }
