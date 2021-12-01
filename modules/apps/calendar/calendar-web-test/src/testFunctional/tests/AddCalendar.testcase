@@ -125,13 +125,12 @@ definition {
 	test CanAddCalendarsWithSameName {
 
 		// TODO LRQA-71605 CanAddCalendarsWithSameName pending implementation
-	
+
 	}
 
 	@description = "LRQA-71360 - Verify that the user can add calendars with Non-Ascii characters on the name field"
 	@priority = "4"
 	test CanAddCalendarWithNoAsciiCharactersOnNameField {
-
 		Calendar.add(
 			calendarName = "旧历",
 			calendarType = "My Calendars",
@@ -143,7 +142,6 @@ definition {
 			calendarName = "旧历",
 			calendarType = "My Calendars",
 			user = "Test Test");
-
 	}
 
 	@description = "LRQA-71360 - Verify that the user can cancel Adding a new calendar"
