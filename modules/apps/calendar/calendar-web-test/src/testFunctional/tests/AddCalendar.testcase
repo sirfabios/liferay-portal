@@ -143,7 +143,6 @@ definition {
 		Calendar.cancelCreateCalendar(calendarName = "My Calendar");
 
 		Calendar.assertCalendarNotPresent(calendarName = "My Calendar");
-		
 	}
 
 	@description = "LRQA-71360 - Verify that user can choose the color of calendar in the -Add Calendar- Page"
