@@ -125,15 +125,24 @@ definition {
 	test CanAddCalendarsWithSameName {
 
 		// TODO LRQA-71605 CanAddCalendarsWithSameName pending implementation
-
+	
 	}
 
 	@description = "LRQA-71360 - Verify that the user can add calendars with Non-Ascii characters on the name field"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test CanAddCalendarWithNoAsciiCharactersOnNameField {
 
-		// TODO LRQA-71606 CanAddCalendarWithNoAsciiCharactersOnNameField pending implementation
+		Calendar.add(
+			calendarName = "旧历",
+			calendarType = "My Calendars",
+			user = "Test Test");
+
+		Navigator.gotoPage(pageName = "Calendar Page");
+
+		Calendar.view(
+			calendarName = "旧历",
+			calendarType = "My Calendars",
+			user = "Test Test");
 
 	}
 
