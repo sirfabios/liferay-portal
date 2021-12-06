@@ -1969,4 +1969,16 @@ definition {
 		CalendarScheduler.viewAgenda(eventTitle = "${eventTitle}");
 	}
 
+	macro viewCalendarRatingPresent {
+		AssertElementPresent(locator1 = "Ratings#YOUR_RATING_STAR");
+
+		AssertElementPresent(locator1 = "Ratings#AVERAGE_STAR");
+	}
+
+	macro viewCalendarRatingNotPresent {
+		AssertElementNotPresent(locator1 = "Ratings#YOUR_RATING_STAR");
+
+		AssertElementNotPresent(locator1 = "Ratings#AVERAGE_STAR");
+	}
+
 }
