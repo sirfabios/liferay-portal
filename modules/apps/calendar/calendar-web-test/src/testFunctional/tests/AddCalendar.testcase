@@ -190,7 +190,6 @@ definition {
 	@description = "LRQA-71797 - Verify that the user can Enable Comments on Calendar"
 	@priority = "3"
 	test CanEnableComments {
-
 		CalendarNavigator.gotoAddMyCalendars();
 
 		CalendarMyCalendars.addMyCalendarByManageCalendars(calendarName = "Calendar Name");
@@ -233,7 +232,6 @@ definition {
 	@description = "Verify that the user can Enable Ratings on Calendar"
 	@priority = "3"
 	test CanEnableRatings {
-
 		CalendarNavigator.gotoAddMyCalendars();
 
 		Calendar._editName(calendarName = "Calendar Name");
@@ -241,18 +239,18 @@ definition {
 		AssertElementPresent(
 			key_tab = "Enable ratings",
 			locator1 = "Checkbox#ENABLE_RATINGS");
-   
+
 		PortletEntry.save();
 
-        Navigator.gotoPage(pageName = "Calendar Page");
+		Navigator.gotoPage(pageName = "Calendar Page");
 
-        CalendarNavigator.gotoAddEventViaMyCalendars(user = "Calendar Name");
+		CalendarNavigator.gotoAddEventViaMyCalendars(user = "Calendar Name");
 
-        CalendarEvent.editTitle(eventTitle = "Calendar Event Title");
+		CalendarEvent.editTitle(eventTitle = "Calendar Event Title");
 
-        CalendarEvent.publish();
+		CalendarEvent.publish();
 
-        Navigator.gotoPage(pageName = "Calendar Page");
+		Navigator.gotoPage(pageName = "Calendar Page");
 
 		CalendarEvent.viewDetails(
 			calendarName = "Test Test - Calendar Name",
@@ -275,7 +273,6 @@ definition {
 			eventType = "Regular");
 
 		CalendarEvent.viewCalendarRatingPresent();
-
 	}
 
 	@description = "LRQA-71595 - Verify that the user can make the new Calendar as the Default Calendar"
