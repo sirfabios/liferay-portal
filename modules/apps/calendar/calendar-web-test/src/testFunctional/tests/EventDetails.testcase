@@ -103,7 +103,6 @@ definition {
 	@description = "LRQA-71888 - Verify that the user can view the fields Title, Starts, Ends, Rresources in event details page"
 	@priority = "3"
 	test CanViewValuesInEventDetailsPage {
-
 		CalendarNavigator.gotoAddEvent();
 
 		CalendarEvent.add(
@@ -118,7 +117,6 @@ definition {
 		CalendarScheduler.gotoDetailsViaDialogBox();
 
 		CalendarEvent.viewAllFieldsEventDetails();
-
 	}
 
 	@priority = "5"
