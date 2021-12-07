@@ -680,7 +680,6 @@ definition {
 	@description = "LRQA-71888 - Verify that the event status is -Approved- when the Calendar has no workflow assigned"
 	@priority = "4"
 	test EventStatusIsApprovedWhenNoWorkflowAssigned {
-
 		CalendarNavigator.gotoAddEvent();
 
 		CalendarEvent.add(
@@ -695,7 +694,6 @@ definition {
 		CalendarScheduler.gotoDetailsViaDialogBox();
 
 		CalendarEvent.viewStatusViaDetails(status = "Approved");
-
 	}
 
 	@description = "LRQA-71888 - Verify that the event status is Denied when the user declines an event"
