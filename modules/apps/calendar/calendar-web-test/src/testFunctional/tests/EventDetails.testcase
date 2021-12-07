@@ -707,7 +707,6 @@ definition {
 	@description = "LRQA-71888 - Verify that the buttons Maybe and Decline are displayed"
 	@priority = "4"
 	test MaybeAndDeclineButtonAreDisplayed {
-
 		CalendarNavigator.gotoAddEvent();
 
 		CalendarEvent.add(
@@ -722,7 +721,6 @@ definition {
 		CalendarScheduler.gotoDetailsViaDialogBox();
 
 		CalendarEvent.viewMaybeAndDeclineButton();
-
 	}
 
 	@description = "This is a use case for LPS-54548."

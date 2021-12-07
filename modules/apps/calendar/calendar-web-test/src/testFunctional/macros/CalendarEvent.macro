@@ -1604,6 +1604,16 @@ definition {
 		Click(locator1 = "Calendar#CURRENT_SITE_CALENDARS_CALENDAR");
 	}
 
+	macro viewMaybeAndDeclineButton {
+		AssertElementPresent(
+			key_tab = "Status",
+			locator1 = "CalendarViewEventDetails#MAYBE_BUTTON");
+
+		AssertElementPresent(
+			key_tab = "Status",
+			locator1 = "CalendarViewEventDetails#DECLINE_BUTTON");
+	}
+
 	macro viewNoRepeating {
 		AssertNotVisible(locator1 = "CalendarEditEvent#REPEAT_SUMMARY");
 
@@ -1967,16 +1977,6 @@ definition {
 		}
 
 		CalendarScheduler.viewAgenda(eventTitle = "${eventTitle}");
-	}
-
-	macro viewMaybeAndDeclineButton {
-		AssertElementPresent(
-			key_tab = "Status",
-			locator1 = "CalendarViewEventDetails#MAYBE_BUTTON");
-
-		AssertElementPresent(
-			key_tab = "Status",
-			locator1 = "CalendarViewEventDetails#DECLINE_BUTTON");
 	}
 
 }
