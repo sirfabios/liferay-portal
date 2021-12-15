@@ -18,6 +18,10 @@ definition {
 		CalendarResource.view(calendarResourceName = "${calendarResourceName}");
 	}
 
+	macro cleanSearchResult {
+		Click(locator1 = "CalendarResources#RESOURCE_SEARCH_CLEAR");
+	}
+
 	macro deactivate {
 		CalendarResource._expandDetailsPanel();
 
@@ -74,12 +78,32 @@ definition {
 		PortletEntry.inputName(name = "${calendarResourceName}");
 	}
 
+	macro editResourceNameAndDescription {
+		CalendarNavigator.gotoAddResource();
+
+		CalendarResource.editResourceName(calendarResourceName = "${calendarResourceName}");
+
+		PortletEntry.inputDescription(description = "${calendarResourceDescription}");
+
+		CalendarResource.save();
+	}
+
 	macro save {
 		Click(locator1 = "Button#SAVE");
 
 		var key_calendarResourceName = "${calendarResourceName}";
 
 		Alert.viewSuccessMessage();
+	}
+
+	macro searchInResourceList {
+		Click(locator1 = "CalendarResources#RESOURCE_FIELD_SEARCH");
+
+		Type(
+			locator1 = "CalendarResources#RESOURCE_FIELD_SEARCH",
+			value1 = "${searchTerm}");
+
+		Click(locator1 = "CalendarResources#RESOURCE_SEARCH_ICON");
 	}
 
 	macro tearDown {
@@ -111,7 +135,7 @@ definition {
 
 		AssertTextEquals(
 			locator1 = "CalendarResources#RESOURCE_TABLE_DESCRIPTION",
-			value1 = "");
+			value1 = "${calendarResourceDescription}");
 
 		AssertTextEquals(
 			locator1 = "CalendarResources#RESOURCE_TABLE_ACTIVE",
@@ -144,6 +168,13 @@ definition {
 			value1 = "${calendarResourceName}'s Calendars");
 	}
 
+	macro viewResourceCreatedInList {
+		AssertElementPresent(
+			key_calendarResourceName = "Resource Name",
+			locator1 = "CalendarResources#RESOURCE_TABLE_ACTIONS",
+			value1 = "${key_calendarResourceName}");
+	}
+
 	macro viewResourceName {
 		var key_calendarResourceName = "${calendarResourceName}";
 
@@ -158,6 +189,27 @@ definition {
 		AssertElementNotPresent(locator1 = "CalendarResources#RESOURCE_TABLE_NAME");
 
 		AssertTextNotPresent(value1 = "${calendarResourceName}");
+	}
+
+	macro viewResourceResults {
+		Click(locator1 = "CalendarResources#RESOURCE_FIELD_SEARCH");
+
+		Type(
+			locator1 = "CalendarResources#RESOURCE_FIELD_SEARCH",
+			value1 = "${searchTerm}");
+
+		Click(locator1 = "CalendarResources#RESOURCE_SEARCH_ICON");
+	}
+
+	macro viewSearchResult {
+		AssertTextEquals(
+			key_calendarResourceName = "${calendarResourceName}",
+			locator1 = "CalendarResources#RESOURCE_FIELD_RESULTS",
+			value1 = "${key_calendarResourceName}");
+	}
+
+	macro viewTableEmpty {
+		AssertElementPresent(locator1 = "CalendarResources#NO_RESOURCES_WERE_FOUND");
 	}
 
 }
