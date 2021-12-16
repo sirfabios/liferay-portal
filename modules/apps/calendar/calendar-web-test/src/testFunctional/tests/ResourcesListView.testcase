@@ -68,14 +68,13 @@ definition {
 	@description = "LRQA-71885 - Verify that the user can Clear the search results"
 	@priority = "3"
 	test CanClearSearchResults {
+		CalendarResource.editResourceNameAndDescription(
+			calendarResourceDescription = "Resource Description1",
+			calendarResourceName = "Resource Name1");
 
 		CalendarResource.editResourceNameAndDescription(
-			calendarResourceName = "Resource Name1",
-            calendarResourceDescription = "Resource Description1");
-
-		CalendarResource.editResourceNameAndDescription(
-			calendarResourceName = "Resource Name2",
-            calendarResourceDescription = "Resource Description2");
+			calendarResourceDescription = "Resource Description2",
+			calendarResourceName = "Resource Name2");
 
 		CalendarResource.searchInResourceList(searchTerm = "Name1");
 
@@ -90,8 +89,6 @@ definition {
 		CalendarResource.viewResourceNameOnTable(key_resourceName = "Resource Name1");
 
 		CalendarResource.viewResourceNameOnTable(key_resourceName = "Resource Name2");
-
-
 	}
 
 	@description = "LRQA-71885 - Verify that the user can create a New Calendar for the Resource"

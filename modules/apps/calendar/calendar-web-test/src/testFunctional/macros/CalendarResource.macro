@@ -18,6 +18,10 @@ definition {
 		CalendarResource.view(calendarResourceName = "${calendarResourceName}");
 	}
 
+	macro cleanSearchResult {
+		Click(locator1 = "CalendarResources#RESOURCE_SEARCH_CLEAR");
+	}
+
 	macro deactivate {
 		CalendarResource._expandDetailsPanel();
 
@@ -74,12 +78,36 @@ definition {
 		PortletEntry.inputName(name = "${calendarResourceName}");
 	}
 
+	macro editResourceNameAndDescription {
+		CalendarNavigator.gotoAddResource();
+
+		CalendarResource.editResourceName(calendarResourceName = "${calendarResourceName}");
+
+		PortletEntry.inputDescription(description = "${calendarResourceDescription}");
+
+		CalendarResource.save();
+	}
+
+	macro notViewResultBar {
+		AssertElementNotPresent(locator1 = "CalendarResources#VIEW_RESOURCE_RESULT_BAR");
+	}
+
 	macro save {
 		Click(locator1 = "Button#SAVE");
 
 		var key_calendarResourceName = "${calendarResourceName}";
 
 		Alert.viewSuccessMessage();
+	}
+
+	macro searchInResourceList {
+		Click(locator1 = "CalendarResources#RESOURCE_FIELD_SEARCH");
+
+		Type(
+			locator1 = "CalendarResources#RESOURCE_FIELD_SEARCH",
+			value1 = "${searchTerm}");
+
+		Click(locator1 = "CalendarResources#RESOURCE_SEARCH_ICON");
 	}
 
 	macro tearDown {
@@ -160,50 +188,12 @@ definition {
 		AssertTextNotPresent(value1 = "${calendarResourceName}");
 	}
 
-	macro editResourceNameAndDescription {
-
-        CalendarNavigator.gotoAddResource();
-
-        CalendarResource.editResourceName(calendarResourceName = "${calendarResourceName}");
-
-        PortletEntry.inputDescription(description = "${calendarResourceDescription}");
-
-        CalendarResource.save();
-    }
-
-    macro searchInResourceList {
-
-        Click(locator1 = "CalendarResources#RESOURCE_FIELD_SEARCH");
-
-        Type(
-            locator1 = "CalendarResources#RESOURCE_FIELD_SEARCH",
-            value1 = "${searchTerm}");
-
-        Click(locator1 = "CalendarResources#RESOURCE_SEARCH_ICON");
-    }
-
-    macro cleanSearchResult {
-
-        Click(locator1 = "CalendarResources#RESOURCE_SEARCH_CLEAR");
-    }
+	macro viewResourceNameOnTable {
+		AssertElementPresent(locator1 = "CalendarResources#VIEW_RESOURCE_NAME_ON_TABLE");
+	}
 
 	macro viewResultBar {
-
-        AssertElementPresent(locator1 = "CalendarResources#VIEW_RESOURCE_RESULT_BAR");
-
-    }
-
-	macro notViewResultBar {
-
-        AssertElementNotPresent(locator1 = "CalendarResources#VIEW_RESOURCE_RESULT_BAR");
-
-    }
-
-	macro viewResourceNameOnTable {
-
-        AssertElementPresent(locator1 = "CalendarResources#VIEW_RESOURCE_NAME_ON_TABLE");
-
-    }
-
+		AssertElementPresent(locator1 = "CalendarResources#VIEW_RESOURCE_RESULT_BAR");
+	}
 
 }
