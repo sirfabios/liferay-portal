@@ -86,21 +86,19 @@ definition {
 	@description = "LRQA-71885 - Verify that the user can filter by Active Resources"
 	@priority = "3"
 	test CanFilterByActiveResources {
-
 		CalendarResource.editResourceNameAndDescription(
-			calendarResourceName = "Active Resource",
-            calendarResourceDescription = "Resource Description");
+			calendarResourceDescription = "Resource Description",
+			calendarResourceName = "Active Resource");
 
 		CalendarResource.addInactiveResource(
-			calendarResourceName = "No Active Resource ",
-            calendarResourceDescription = "Resource Description");
+			calendarResourceDescription = "Resource Description",
+			calendarResourceName = "No Active Resource ");
 
 		CalendarResource.resourceFilterAndOrderOptions(filterOption = "Yes");
 
 		CalendarResource.viewResourceNameOnTable(key_resourceName = "Active Resource");
 
 		CalendarResource.notViewResourceNameOnTable(key_resourceName = "No Active Resource");
-
 	}
 
 	@description = "LRQA-71885 - Verify that the user can filter by Current Scope"
