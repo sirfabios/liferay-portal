@@ -160,4 +160,50 @@ definition {
 		AssertTextNotPresent(value1 = "${calendarResourceName}");
 	}
 
+	macro editResourceNameAndDescription {
+
+        CalendarNavigator.gotoAddResource();
+
+        CalendarResource.editResourceName(calendarResourceName = "${calendarResourceName}");
+
+        PortletEntry.inputDescription(description = "${calendarResourceDescription}");
+
+        CalendarResource.save();
+    }
+
+    macro searchInResourceList {
+
+        Click(locator1 = "CalendarResources#RESOURCE_FIELD_SEARCH");
+
+        Type(
+            locator1 = "CalendarResources#RESOURCE_FIELD_SEARCH",
+            value1 = "${searchTerm}");
+
+        Click(locator1 = "CalendarResources#RESOURCE_SEARCH_ICON");
+    }
+
+    macro cleanSearchResult {
+
+        Click(locator1 = "CalendarResources#RESOURCE_SEARCH_CLEAR");
+    }
+
+	macro viewResultBar {
+
+        AssertElementPresent(locator1 = "CalendarResources#VIEW_RESOURCE_RESULT_BAR");
+
+    }
+
+	macro notViewResultBar {
+
+        AssertElementNotPresent(locator1 = "CalendarResources#VIEW_RESOURCE_RESULT_BAR");
+
+    }
+
+	macro viewResourceNameOnTable {
+
+        AssertElementPresent(locator1 = "CalendarResources#VIEW_RESOURCE_NAME_ON_TABLE");
+
+    }
+
+
 }

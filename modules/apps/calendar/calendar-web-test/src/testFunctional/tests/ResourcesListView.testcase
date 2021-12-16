@@ -66,11 +66,31 @@ definition {
 	}
 
 	@description = "LRQA-71885 - Verify that the user can Clear the search results"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test CanClearSearchResults {
 
-		// TODO LRQA-71926 CanClearSearchResults pending implementation
+		CalendarResource.editResourceNameAndDescription(
+			calendarResourceName = "Resource Name1",
+            calendarResourceDescription = "Resource Description1");
+
+		CalendarResource.editResourceNameAndDescription(
+			calendarResourceName = "Resource Name2",
+            calendarResourceDescription = "Resource Description2");
+
+		CalendarResource.searchInResourceList(searchTerm = "Name1");
+
+		CalendarResource.viewResultBar();
+
+		CalendarResource.viewResourceNameOnTable(key_resourceName = "Resource Name1");
+
+		CalendarResource.cleanSearchResult();
+
+		CalendarResource.notViewResultBar();
+
+		CalendarResource.viewResourceNameOnTable(key_resourceName = "Resource Name1");
+
+		CalendarResource.viewResourceNameOnTable(key_resourceName = "Resource Name2");
+
 
 	}
 
