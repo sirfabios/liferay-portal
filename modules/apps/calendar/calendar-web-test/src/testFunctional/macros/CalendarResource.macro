@@ -160,4 +160,60 @@ definition {
 		AssertTextNotPresent(value1 = "${calendarResourceName}");
 	}
 
+	macro editResourceNameAndDescription {
+		CalendarNavigator.gotoAddResource();
+
+		CalendarResource.editResourceName(calendarResourceName = "${calendarResourceName}");
+
+		PortletEntry.inputDescription(description = "${calendarResourceDescription}");
+
+		CalendarResource.save();
+	}
+
+	macro resourceFilterAndOrderOptions {
+        var filterOption = "${filterOption}";
+
+        Click(
+            locator1 = "CalendarResources#RESOURCE_FILTER_AND_ORDER_BUTTON_DROPDOWN",
+            value1 = "Filter and Order");
+
+        Click(locator1 = "CalendarResources#RESOURCE_FILTER_AND_ORDER_OPTIONS");
+    }
+
+    macro addInactiveResource{
+
+        CalendarNavigator.gotoAddResource();
+
+        CalendarResource.editResourceName(calendarResourceName = "${calendarResourceName}");
+
+        PortletEntry.inputDescription(description = "${calendarResourceDescription}");
+
+        Uncheck(locator1 = "Checkbox#ACTIVE");
+
+        CalendarResource.save();
+
+        Alert.viewSuccessMessage();
+        
+    }
+
+    macro resourceActiveOrInactiveInListView{
+
+        AssertTextEquals(
+            locator1 = "CalendarResources#VIEW_CREATED_RESOURCE_IS_ACTIVE",
+            value1 = "${key}");
+        
+    }
+
+	 macro viewResourceNameOnTable {
+
+        AssertElementPresent(locator1 = "CalendarResources#VIEW_RESOURCE_NAME_ON_TABLE");
+
+    }
+
+	macro notViewResourceNameOnTable {
+
+        AssertElementNotPresent(locator1 = "CalendarResources#VIEW_RESOURCE_NAME_ON_TABLE");
+
+    }
+
 }

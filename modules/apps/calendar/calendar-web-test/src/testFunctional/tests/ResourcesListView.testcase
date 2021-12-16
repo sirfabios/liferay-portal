@@ -84,11 +84,22 @@ definition {
 	}
 
 	@description = "LRQA-71885 - Verify that the user can filter by Active Resources"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test CanFilterByActiveResources {
 
-		// TODO LRQA-71922 CanFilterByActiveResources pending implementation
+		CalendarResource.editResourceNameAndDescription(
+			calendarResourceName = "Active Resource",
+            calendarResourceDescription = "Resource Description");
+
+		CalendarResource.addInactiveResource(
+			calendarResourceName = "No Active Resource ",
+            calendarResourceDescription = "Resource Description");
+
+		CalendarResource.resourceFilterAndOrderOptions(filterOption = "Yes");
+
+		CalendarResource.viewResourceNameOnTable(key_resourceName = "Active Resource");
+
+		CalendarResource.notViewResourceNameOnTable(key_resourceName = "No Active Resource");
 
 	}
 
