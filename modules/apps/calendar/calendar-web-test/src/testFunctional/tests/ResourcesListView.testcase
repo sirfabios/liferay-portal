@@ -59,16 +59,13 @@ definition {
 	@description = "LRQA-71885 - Verify that the user can change Permissions for the Resource"
 	@priority = "3"
 	test CanChangeResourcePermissions {
-
 		CalendarResource.editResourceNameAndDescription(
-			calendarResourceName = "Resource Name",
-            calendarResourceDescription = "Resource Description");
+			calendarResourceDescription = "Resource Description",
+			calendarResourceName = "Resource Name");
 
 		CalendarResource.gotoMenuPermissionsCreatedResource(key_calendarName = "Resource Name");
 
 		CalendarResource.viewMenuPermissionsModal();
-
-
 	}
 
 	@description = "LRQA-71885 - Verify that the user can Clear the search results"
