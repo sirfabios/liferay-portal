@@ -160,4 +160,28 @@ definition {
 		AssertTextNotPresent(value1 = "${calendarResourceName}");
 	}
 
+	macro editResourceNameAndDescription {
+        CalendarNavigator.gotoAddResource();
+
+        CalendarResource.editResourceName(calendarResourceName = "${calendarResourceName}");
+
+        PortletEntry.inputDescription(description = "${calendarResourceDescription}");
+
+        CalendarResource.save();
+    }
+
+	macro gotoMenuPermissionsCreatedResource {
+
+		Click(locator1 = "CalendarResources#VERTICAL_ELLIPSIS_BY_RESOURCE_NAME");
+
+		MenuItem.clickNoError(menuItem = "Permissions");
+
+    }
+
+	macro viewMenuPermissionsModal {
+
+		AssertElementPresent(locator1 = "CalendarResources#RESOURCE_PERMISSIONS_MODAL");
+    }
+
+
 }

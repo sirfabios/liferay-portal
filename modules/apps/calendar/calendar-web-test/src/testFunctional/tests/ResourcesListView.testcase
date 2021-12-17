@@ -57,11 +57,17 @@ definition {
 	}
 
 	@description = "LRQA-71885 - Verify that the user can change Permissions for the Resource"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test CanChangeResourcePermissions {
 
-		// TODO LRQA-71925 CanChangeResourcePermissions pending implementation
+		CalendarResource.editResourceNameAndDescription(
+			calendarResourceName = "Resource Name",
+            calendarResourceDescription = "Resource Description");
+
+		CalendarResource.gotoMenuPermissionsCreatedResource(key_calendarName = "Resource Name");
+
+		CalendarResource.viewMenuPermissionsModal();
+
 
 	}
 
