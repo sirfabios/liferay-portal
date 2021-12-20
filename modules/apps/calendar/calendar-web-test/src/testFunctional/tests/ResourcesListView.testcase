@@ -111,11 +111,22 @@ definition {
 	}
 
 	@description = "LRQA-71885 - Verify that the user can filter by Nonactive Resources"
-	@ignore = "Test Stub"
 	@priority = "3"
 	test CanFilterByNonactiveResources {
 
-		// TODO LRQA-71923 CanFilterByNonactiveResources pending implementation
+		CalendarResource.editResourceNameAndDescription(
+			calendarResourceName = "Active Resource",
+            calendarResourceDescription = "Active Resource Description");
+
+		CalendarResource.addInactiveResource(
+			calendarResourceName = "Inactive Resource ",
+            calendarResourceDescription = "Inactive Resource Description");
+
+		CalendarResource.resourceFilterAndOrderOptions(filterOption = "No");
+
+		CalendarResource.notViewResourceNameOnTable(key_resourceName = "Active Resource");
+
+		CalendarResource.viewResourceNameOnTable(key_resourceName = "Inactive Resource");
 
 	}
 
