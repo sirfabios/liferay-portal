@@ -15,6 +15,16 @@
 	<td>//h3[contains(.,'Permissions')]</td>
 	<td></td>
 </tr>
+<tr>
+	<td>PERMISSIONS_ITEMS_PER_PAGE_SELECT</td>
+	<td>//div[contains(@class,'pagination-items-per-page')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RESULTS_ENTRIES</td>
+	<td>//p[@class='pagination-results']</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>

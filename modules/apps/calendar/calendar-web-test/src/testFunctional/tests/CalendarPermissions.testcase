@@ -57,11 +57,18 @@ definition {
 	}
 
 	@description = "LRQA-71890 - Verify that the user can change the number of entries on the permission page"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test CanChangeTheNumberOfEntriesDIsplayed {
 
-		// TODO LRQA-71961 CanChangeTheNumberOfEntriesDIsplayed pending implementation
+		CalendarPermissions.gotoPermissions();
+
+		CalendarPermissions.changePaginationPermissions(itemsPerPage = "4");
+
+		CalendarPermissions.viewResultsEntries(results = "Showing 1 to 4 of 9 entries.");
+
+		CalendarPermissions.changePaginationPermissions(itemsPerPage = "8");
+
+		CalendarPermissions.viewResultsEntries(results = "Showing 1 to 8 of 9 entries.");
 
 	}
 
