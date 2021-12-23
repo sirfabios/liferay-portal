@@ -87,15 +87,13 @@ definition {
 	@ignore = "Test Stub"
 	@priority = "3"
 	test SystemDisplaysMessageWhenNoRoleIsFound {
-
 		CalendarPermissions.gotoPermissions();
 
-		CalendarPermissions.search(searchTerm ="DXP Client");
+		CalendarPermissions.search(searchTerm = "DXP Client");
 
 		CalendarPermissions.viewSearchResult(searchResults = "0 Results for DXP Client");
 
 		CalendarPermissions.viewTableDisplay(key_message = "No roles were found.");
-
 	}
 
 }
