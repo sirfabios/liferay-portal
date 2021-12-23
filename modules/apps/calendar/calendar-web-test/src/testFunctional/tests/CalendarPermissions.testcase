@@ -75,11 +75,24 @@ definition {
 	}
 
 	@description = "LRQA-71890 - Verify that the user can search for a existent permission"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test CanSearchOnPermissionsPage {
 
-		// TODO LRQA-71959 CanSearchOnPermissionsPage pending implementation
+		CalendarPermissions.gotoPermissions();
+
+		CalendarPermissions.search(searchTerm ="Guest");
+
+		CalendarPermissions.viewSearchResult(searchResults = "1 Results for Guest");
+
+		CalendarPermissions.viewPermissionsRoleName(roleName = "Guest");
+
+		CalendarPermissions.cleanSearchResult();
+
+		CalendarPermissions.search(searchTerm ="DXP Client");
+
+		CalendarPermissions.viewSearchResult(searchResults = "0 Results for DXP Client");
+
+		CalendarPermissions.viewTableDisplay(key_message = "No roles were found.");
 
 	}
 
