@@ -88,7 +88,13 @@ definition {
 	@priority = "3"
 	test SystemDisplaysMessageWhenNoRoleIsFound {
 
-		// TODO LRQA-71962 SystemDisplaysMessageWhenNoRoleIsFound pending implementation
+		CalendarPermissions.gotoPermissions();
+
+		CalendarPermissions.search(searchTerm ="DXP Client");
+
+		CalendarPermissions.viewSearchResult(searchResults = "0 Results for DXP Client");
+
+		CalendarPermissions.viewTableDisplay(key_message = "No roles were found.");
 
 	}
 
