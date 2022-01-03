@@ -1,0 +1,23 @@
+definition {
+
+	var siteName = "Liferay";
+    
+    macro viewLeftSideBar {
+        
+        AssertElementPresent(locator1 = "CalendarPage#LEFT_SIDE_BAR");
+
+    }
+
+    macro viewLeftSideBarHide {
+        
+        AssertElementPresent(locator1 = "CalendarPage#LEFT_SIDE_BAR_HIDE");
+
+    }
+
+    macro clickCaretLeftIcon {
+        
+        Click(locator1 = "CalendarPage#CARET_LEFT_ICON");
+
+    }
+
+}
