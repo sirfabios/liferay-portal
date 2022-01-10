@@ -1895,4 +1895,22 @@ definition {
 		}
 	}
 
+	macro viewKebabMenu3OptionsIsAvailable {
+		Click(locator1 = "Icon#SVG_ELLIPSIS");
+
+		var dropdownItem = "${dropdownItem}";
+
+		if ("${dropdownItem}" == "Reassign Task") {
+			AssertElementPresent(locator1 = "WorkflowAllItems#REASSIGN_TASK_DROPDOWN");
+		}
+
+		if ("${dropdownItem}" == "Update Due Date") {
+			AssertElementPresent(locator1 = "WorkflowAllItems#UPDATE_DUE_DATE_DROPDOWN");
+		}
+
+		if ("${dropdownItem}" == "Track Workflow") {
+			AssertElementPresent(locator1 = "WorkflowAllItems#TRACK_WORKFLOW_DROPDOWN");
+		}
+	}
+
 }
