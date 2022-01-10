@@ -342,7 +342,6 @@ definition {
 	@description = "Verify that there is a Track Approval option on the kebab menu"
 	@priority = "4"
 	test CanSelectTrackApprovalOnKebabMenu {
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
