@@ -505,6 +505,7 @@
 	<td>//div[contains(@class, 'current-task') and contains(@title,'${currentNode}')]//*[name()='svg'][contains(@class,'lexicon-icon')]</td>
 	<td></td>
 </tr>
+
 </tbody>
 </table>
 </body>
