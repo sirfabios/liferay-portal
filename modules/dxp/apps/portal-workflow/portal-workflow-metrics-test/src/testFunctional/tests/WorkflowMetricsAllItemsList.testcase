@@ -140,11 +140,44 @@ definition {
 	}
 
 	@description = "Verify that the users are able to identify the current nodes of the instance in the workflow, when there is multiple statuses"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test CanIdentifyMultipleCurrentNode {
 
-		// TODO LRQA-72394 CanIdentifyMultipleCurrentNode pending implementation
+		property portal.acceptance = "true";
+		property test.name.skip.portal.instance = "WorkflowMetricsAllItemsList#TooltipDisplaysBulletListWhenMultipleItems";
+
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Workflow.uploadDefinition(
+			workflowDefinitionFile = "multi-task-process-workflow-definition.xml",
+			workflowDefinitionTitle = "Multi Task Process");
+
+		Navigator.gotoNavItem(navItem = "Configuration");
+
+		Workflow.configureWorkflow(
+			workflowDefinition = "Multi Task Process",
+			workflowResourceValue = "Blogs Entry");
+
+		JSONBlog.addEntry(
+			entryContent = "Blogs Entry",
+			entryTitle = "Blogs Entry Title");
+
+		WorkflowMetrics.goToWorkflowAllItems(workflowProcessName = "Multi Task Process");
+
+		WorkflowMetrics.gotoKebabMenu3Options(dropdownItem = "Track Workflow");
+
+        WorkflowMetrics.viewCurrentNode(currentnode = "task1, task2, task3");
+
+        WorkflowMetrics.viewNodeCircleIcon(currentNode = "task1");
+
+		WorkflowMetrics.viewNodeCircleIcon(currentNode = "task2");
+
+		WorkflowMetrics.viewNodeCircleIcon(currentNode = "task3");
+
+        WorkflowMetrics.notViewNodeCircleIcon(currentNode = "Join");
 
 	}
 
