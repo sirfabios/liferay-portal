@@ -142,7 +142,6 @@ definition {
 	@description = "Verify that the users are able to identify the current nodes of the instance in the workflow, when there is multiple statuses"
 	@priority = "4"
 	test CanIdentifyMultipleCurrentNode {
-
 		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "WorkflowMetricsAllItemsList#TooltipDisplaysBulletListWhenMultipleItems";
 
@@ -169,16 +168,15 @@ definition {
 
 		WorkflowMetrics.gotoKebabMenu3Options(dropdownItem = "Track Workflow");
 
-        WorkflowMetrics.viewCurrentNode(currentnode = "task1, task2, task3");
+		WorkflowMetrics.viewCurrentNode(currentnode = "task1, task2, task3");
 
-        WorkflowMetrics.viewNodeCircleIcon(currentNode = "task1");
+		WorkflowMetrics.viewNodeCircleIcon(currentNode = "task1");
 
 		WorkflowMetrics.viewNodeCircleIcon(currentNode = "task2");
 
 		WorkflowMetrics.viewNodeCircleIcon(currentNode = "task3");
 
-        WorkflowMetrics.notViewNodeCircleIcon(currentNode = "Join");
-
+		WorkflowMetrics.notViewNodeCircleIcon(currentNode = "Join");
 	}
 
 	@description = "Verify that the users are able to identify the past stages that the workflow instance has already passed by"
