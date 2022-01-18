@@ -887,6 +887,24 @@ definition {
 		Click(locator1 = "WorkflowMetrics#SEARCH_FIELD_MAPPINGS_HEADER");
 	}
 
+	macro gotoKebabMenu3Options {
+		Click(locator1 = "Icon#SVG_ELLIPSIS");
+
+		var dropdownItem = "${dropdownItem}";
+
+		if ("${dropdownItem}" == "Reassign Task") {
+			Click(locator1 = "WorkflowAllItems#REASSIGN_TASK_DROPDOWN");
+		}
+
+		if ("${dropdownItem}" == "Update Due Date") {
+			Click(locator1 = "WorkflowAllItems#UPDATE_DUE_DATE_DROPDOWN");
+		}
+
+		if ("${dropdownItem}" == "Track Workflow") {
+			Click(locator1 = "WorkflowAllItems#TRACK_WORKFLOW_DROPDOWN");
+		}
+	}
+
 	macro goToReassignSelectTask {
 		Click(
 			locator1 = "WorkflowAllItems#KEBAB_DROPDOWN",
@@ -1640,6 +1658,12 @@ definition {
 		AssertElementNotPresent(locator1 = "WorkflowAllItems#UPDATE_DUE_DATE_DROPDOWN");
 	}
 
+	macro viewNodes {
+		AssertElementPresent(
+			locator1 = "WorkflowAllItems#TRACK_APPROVAL_NODE",
+			value1 = "${node}");
+	}
+
 	macro viewPerformanceByAssignee {
 		var key_assignee = "${assignee}";
 		var key_avgCompletionTime = "${avgCompletionTime}";
@@ -1772,6 +1796,12 @@ definition {
 			value1 = "Completion velocity tracks the number of completed workflow instances over the selected time period.");
 	}
 
+	macro viewTrackWorkflowModal {
+		SelectFrame(locator1 = "WorkflowAllItems#TRACK_APPROVAL_BODY");
+
+		AssertElementPresent(locator1 = "WorkflowAllItems#TRACK_APPROVAL_BODY");
+	}
+
 	macro viewUserWorkloadByStepOnAllItems {
 		var key_assigneeName = "${assigneeName}";
 		var key_taskName = "${taskName}";
@@ -1894,34 +1924,5 @@ definition {
 			echo("timeout exceeded");
 		}
 	}
-
-		macro viewNodes {
-		AssertElementPresent(
-			locator1 = "WorkflowAllItems#TRACK_APPROVAL_NODE",
-			value1 = "${node}");
-	}
-
-	macro gotoKebabMenu3Options {
-		Click(locator1 = "Icon#SVG_ELLIPSIS");
-		var dropdownItem = "${dropdownItem}";
-		if ("${dropdownItem}" == "Reassign Task") {
-			Click(locator1 = "WorkflowAllItems#REASSIGN_TASK_DROPDOWN");
-		}
-		if ("${dropdownItem}" == "Update Due Date") {
-			Click(locator1 = "WorkflowAllItems#UPDATE_DUE_DATE_DROPDOWN");
-		}
-		if ("${dropdownItem}" == "Track Workflow") {
-			Click(locator1 = "WorkflowAllItems#TRACK_WORKFLOW_DROPDOWN");
-		}
-	}
-	macro viewTrackWorkflowModal {
-
-		SelectFrame(locator1 = "WorkflowAllItems#TRACK_APPROVAL_BODY");
-	
-		AssertElementPresent(locator1 = "WorkflowAllItems#TRACK_APPROVAL_BODY");
-
-	}
-
-	
 
 }
