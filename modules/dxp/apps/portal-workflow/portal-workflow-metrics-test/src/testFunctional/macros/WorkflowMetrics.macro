@@ -887,6 +887,28 @@ definition {
 		Click(locator1 = "WorkflowMetrics#SEARCH_FIELD_MAPPINGS_HEADER");
 	}
 
+
+
+	macro gotoKebabMenu3Options {
+		Click(locator1 = "Icon#SVG_ELLIPSIS");
+
+		var dropdownItem = "${dropdownItem}";
+
+		if ("${dropdownItem}" == "Reassign Task") {
+			Click(locator1 = "WorkflowAllItems#REASSIGN_TASK_DROPDOWN");
+		}
+
+		if ("${dropdownItem}" == "Update Due Date") {
+			Click(locator1 = "WorkflowAllItems#UPDATE_DUE_DATE_DROPDOWN");
+		}
+
+		if ("${dropdownItem}" == "Track Workflow") {
+			Click(locator1 = "WorkflowAllItems#TRACK_WORKFLOW_DROPDOWN");
+		}
+	}
+
+
+
 	macro goToReassignSelectTask {
 		Click(
 			locator1 = "WorkflowAllItems#KEBAB_DROPDOWN",
@@ -1640,6 +1662,18 @@ definition {
 		AssertElementNotPresent(locator1 = "WorkflowAllItems#UPDATE_DUE_DATE_DROPDOWN");
 	}
 
+
+
+	macro viewNameOverTransition {
+		SelectFrame(locator1 = "WorkflowAllItems#TRACK_APPROVAL_BODY");
+
+		MouseOver(
+			locator1 = "WorkflowMetricsAllItemsList#NODES_MODAL_TRACK_WORKFLOW",
+			nodesTrackWorkflow = "${nodesTrackWorkflow}");
+
+		AssertElementPresent(locator1 = "WorkflowAllItems#NAME_OVER_TRANSITION");
+	}
+
 	macro viewPerformanceByAssignee {
 		var key_assignee = "${assignee}";
 		var key_avgCompletionTime = "${avgCompletionTime}";
@@ -1770,6 +1804,14 @@ definition {
 		AssertTextEquals.assertPartialText(
 			locator1 = "Message#TOOLTIP",
 			value1 = "Completion velocity tracks the number of completed workflow instances over the selected time period.");
+	}
+
+	
+
+	macro viewTrackWorkflowModal {
+		SelectFrame(locator1 = "WorkflowAllItems#TRACK_APPROVAL_BODY");
+
+		AssertElementPresent(locator1 = "WorkflowAllItems#TRACK_APPROVAL_BODY");
 	}
 
 	macro viewUserWorkloadByStepOnAllItems {
