@@ -490,19 +490,16 @@
 	<td>//span[contains(@class, 'truncate-container')]</td>
 	<td></td>
 </tr>
-
 <tr>
 	<td>TRACK_APPROVAL_BODY</td>
 	<td>//div[contains(@class, 'modal-title') and contains(.,'Track Workflow')]//..//..//div[contains(@class,'modal-body')]</td>
 	<td></td>
 </tr>
-
 <tr>
 	<td>TRACK_WORKFLOW_DROPDOWN</td>
 	<td>//div[@class='dropdown-menu show']//button[@class='dropdown-item'][contains(text(),'Track Workflow')]</td>
 	<td></td>
 </tr>
-
 <tr>
 	<td>NAME_OVER_TRANSITION</td>
 	<td>//*[contains(@class, 'react-flow__edge react-flow__edge-transition')]//..//*[contains(text(),'${nameOverTransition}')]</td>

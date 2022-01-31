@@ -324,58 +324,39 @@ definition {
 	@description = "Verify that the user is able to see the label of the transitions of a specific node while hovering it"
 	@priority = "4"
 	test CanSeeTransitionsLabelOnHoverNode {
-		
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
 			portlet = "Process Builder");
 
-
-
-
 		Navigator.gotoNavItem(navItem = "Configuration");
-
-
 
 		Workflow.configureWorkflow(
 			workflowDefinition = "Single Approver",
 			workflowResourceValue = "Blogs Entry");
 
-
-
 		JSONBlog.addEntry(
 			entryContent = "Test Content",
 			entryTitle = "Test Blog");
-
-
 
 		ApplicationsMenu.gotoPortlet(
 			category = "Workflow",
 			panel = "Applications",
 			portlet = "Metrics");
 
-
-
 		WorkflowMetrics.goToWorkflowAllItems(workflowProcessName = "Single Approver");
-
 
 		WorkflowMetrics.gotoKebabMenu3Options(dropdownItem = "Track Workflow");
 
-
-
-
 		WorkflowMetrics.viewTrackWorkflowModal();
-
 
 		WorkflowMetrics.viewNameOverTransition(
 			nameOverTransition = "REVIEW",
 			nodesTrackWorkflow = "Created");
 
-
 		WorkflowMetrics.viewNameOverTransition(
 			nameOverTransition = "APPROVE",
 			nodesTrackWorkflow = "Review");
-
 
 		WorkflowMetrics.viewNameOverTransition(
 			nameOverTransition = "REJECT",
