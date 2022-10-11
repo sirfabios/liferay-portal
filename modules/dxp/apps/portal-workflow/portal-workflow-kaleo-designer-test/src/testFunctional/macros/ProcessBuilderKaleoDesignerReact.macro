@@ -1602,6 +1602,12 @@ definition {
 		}
 	}
 
+	macro viewNotificationContent {
+		AssertTextEquals(
+			locator1 = "ProcessBuilderKaleoDesignerReact#NOTIFICATION_CONTENT",
+			value1 = "${notificationContent}");
+	}
+
 	macro viewNotificationInfo {
 		if (isSet(notificationName)) {
 			AssertTextEquals(
@@ -1979,11 +1985,5 @@ definition {
 			locator1 = "ProcessBuilderKaleoDesignerReact#XML_CODE_METADATA_ELEMENT",
 			value1 = "${coordinateY}");
 	}
-
-	macro viewNotificationContent {
-        AssertTextEquals(
-            locator1 = "ProcessBuilderKaleoDesignerReact#NOTIFICATION_CONTENT",
-            value1 = "${notificationContent}");
-    }
 
 }
