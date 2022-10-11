@@ -1980,4 +1980,10 @@ definition {
 			value1 = "${coordinateY}");
 	}
 
+	macro viewNotificationContent {
+        AssertTextEquals(
+            locator1 = "ProcessBuilderKaleoDesignerReact#NOTIFICATION_CONTENT",
+            value1 = "${notificationContent}");
+    }
+
 }
