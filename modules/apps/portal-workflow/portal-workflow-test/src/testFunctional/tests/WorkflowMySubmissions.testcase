@@ -257,7 +257,6 @@ definition {
 		WebContent.addWithWorkflowCP(
 			webContentContent = "WC WebContent Content",
 			webContentTitle = "WC WebContent Title");
-			
 
 		UserBar.gotoDropdownItem(dropdownItem = "My Workflow Tasks");
 
