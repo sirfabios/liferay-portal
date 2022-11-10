@@ -20,7 +20,7 @@ definition {
 
 	macro gotoReminderEmailTab {
 		AssertClick(
-			locator1 = "CalendarEditCalendar#NOTIFICATION_TEMPLATES_REMINDER_EMAIL_TAB_INACTIVE",
+			locator1 = "CalendarEditCalendar#NOTIFICATION_TEMPLATES_REMINDER_EMAIL_TAB_ACTIVE",
 			value1 = "Reminder Email");
 	}
 

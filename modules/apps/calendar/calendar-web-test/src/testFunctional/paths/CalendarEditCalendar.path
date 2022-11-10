@@ -30,7 +30,7 @@
 
 <tr>
 	<td>NAVIGATION_NOTIFICATION_TEMPLATES_TAB</td>
-	<td>xpath=(//li)[contains(@class,'nav-item')]//a[contains(@class,'nav-link') and (contains(.,'Notification Templates'))]</td>
+	<td>//ul[contains(@class,'navbar-nav')]//span[contains(@class,'navbar-text-truncate') and contains(.,'Notification Templates')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -48,7 +48,7 @@
 </tr>
 <tr>
 	<td>NOTIFICATION_TEMPLATES_INVITE_EMAIL_TAB_ACTIVE</td>
-	<td>xpath=(//li)[contains(@class,'nav-item')]//a[contains(@class,'nav-link active') and (contains(.,'Invite Email'))]</td>
+	<td>//ul[contains(@class,'navbar-nav')]//span[contains(@class,'navbar-text-truncate') and contains(.,'Invite Email')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,7 +58,7 @@
 </tr>
 <tr>
 	<td>NOTIFICATION_TEMPLATES_REMINDER_EMAIL_TAB_ACTIVE</td>
-	<td>xpath=(//li)[contains(@class,'nav-item')]//a[contains(@class,'nav-link active') and (contains(.,'Reminder Email'))]</td>
+	<td>//ul[contains(@class,'navbar-nav')]//span[contains(@class,'navbar-text-truncate') and contains(.,'Reminder Email')]</td>
 	<td></td>
 </tr>
 <tr>

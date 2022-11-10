@@ -323,10 +323,10 @@ definition {
 		}
 
 		if ("${reminderEmail}" == "true") {
-			AssertElementNotPresent(locator1 = "CalendarEditCalendar#NOTIFICATION_TEMPLATES_REMINDER_EMAIL_TAB_ACTIVE");
+			AssertElementPresent(locator1 = "CalendarEditCalendar#NOTIFICATION_TEMPLATES_REMINDER_EMAIL_TAB_ACTIVE");
 
 			AssertClick(
-				locator1 = "CalendarEditCalendar#NOTIFICATION_TEMPLATES_REMINDER_EMAIL_TAB_INACTIVE",
+				locator1 = "CalendarEditCalendar#NOTIFICATION_TEMPLATES_REMINDER_EMAIL_TAB_ACTIVE",
 				value1 = "Reminder Email");
 		}
 		else if (IsElementPresent(locator1 = "CalendarEditCalendar#NOTIFICATION_TEMPLATES_REMINDER_EMAIL_TAB_ACTIVE")) {
