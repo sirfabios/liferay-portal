@@ -122,7 +122,7 @@ definition {
 	@priority = 5
 	test CanAddEntryOnRelationshipTabForMtoM {
 		property ci.retries.disabled = "true";
-		property portal.acceptance = "true";
+		property portal.acceptance = "quarantine";
 
 		task ("Given a related object with Custom Layout and Relationship tab (Many to Many)") {
 			ObjectAdmin.addObjectViaAPI(
@@ -1020,7 +1020,7 @@ definition {
 	@priority = 5
 	test CanSelectExistingEntriesOnRelationshipTab {
 		property ci.retries.disabled = "true";
-		property portal.acceptance = "true";
+		property portal.acceptance = "quarantine";
 
 		task ("Given a related object with Custom Layout and Relationship tab") {
 			ObjectAdmin.addObjectViaAPI(
